@@ -39,6 +39,7 @@
   "url": "https://selnastudio.github.io/liv-coffee/",
   "servesCuisine": ["Desayunos", "Brunch", "Café de especialidad"],
   "priceRange": "$$",
+  "hasMenu": "https://selnastudio.github.io/liv-coffee/assets/menu-liv-coffee.pdf",
   "telephone": "+52-222-955-3399",
   "acceptsReservations": "True",
   "address": {
@@ -182,18 +183,20 @@ header.nav.solid{background:rgba(250,247,240,.92);backdrop-filter:blur(10px);box
 .menu__head{max-width:40rem}
 .menu__head h2{font-size:clamp(1.9rem,5vw,2.9rem);margin-top:.7rem}
 .menu__head p{margin-top:1rem;color:var(--ink-soft)}
+.menu__head .btn{margin-top:1.5rem}
 .menu__grid{margin-top:clamp(2.2rem,5vw,3rem);display:grid;gap:1.6rem}
 .card{
   background:var(--cream);border-radius:1.4rem;overflow:hidden;box-shadow:var(--shadow);
   display:flex;flex-direction:column;transition:transform .4s ease,box-shadow .4s ease;
 }
 .card:hover{transform:translateY(-6px)}
-.card__img{aspect-ratio:4/3;overflow:hidden}
+.card__img{aspect-ratio:4/5;overflow:hidden;position:relative}
 .card__img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
 .card:hover .card__img img{transform:scale(1.06)}
-.card__body{padding:1.5rem 1.5rem 1.7rem;display:flex;flex-direction:column;gap:.7rem;flex:1}
-.card__body h3{font-size:1.28rem}
-.card__items{color:var(--ink-soft);font-size:.95rem;line-height:1.6;padding-top:.9rem;border-top:1px solid var(--line)}
+.card__img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,22,10,0) 45%,rgba(20,22,10,.62) 100%);pointer-events:none}
+.card__caption{position:absolute;left:1.2rem;right:1.2rem;bottom:1rem;z-index:1;font-family:var(--ff-display);font-style:italic;font-weight:700;font-size:clamp(1.2rem,2.6vw,1.5rem);color:var(--cream);line-height:1.15}
+.card__body{padding:1.2rem 1.5rem 1.5rem;display:flex;flex-direction:column;gap:.4rem}
+.card__body h3{font-size:1.1rem}
 .card__note{font-size:.8rem;color:var(--accent);font-weight:700}
 .veg{width:.85em;height:.85em;fill:var(--accent);flex:none;vertical-align:-.1em}
 .menu__legend{margin-top:1.8rem;display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--ink-soft)}
@@ -323,41 +326,47 @@ footer a{color:rgba(251,248,242,.92)}
       <div class="menu__head">
         <p class="eyebrow r">Menú</p>
         <h2 class="r" style="--d:.06s">Para cada tipo de mañana</h2>
-        <p class="r" style="--d:.1s">Una probada de lo que están sirviendo hoy. La carta completa —más de 90 platillos y bebidas— los espera en el local.</p>
+        <p class="r" style="--d:.1s">Una probada de lo que están sirviendo hoy — la carta completa, con todos los platillos, bebidas y precios, está en el menú digital.</p>
+        <a class="btn btn--solid r" style="--d:.14s" href="assets/menu-liv-coffee.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/></svg>
+          Ver menú completo (PDF)
+        </a>
       </div>
 
       <div class="menu__grid">
         <article class="card r">
-          <div class="card__img"><img src="assets/smoothie.webp" alt="Smoothie de fresa con crema batida en Liv Coffee" width="1000" height="1178" loading="lazy"></div>
-          <div class="card__body">
-            <h3>Bowls &amp; Liv Sweet</h3>
-            <p class="card__items">Green Mapple · Berry Happy · <svg class="veg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20c8-1 14-7 15-16-9 1-15 7-15 16Z"/></svg> Fruta de temporada</p>
+          <div class="card__img">
+            <img src="assets/smoothie.webp" alt="Smoothie de fresa con crema batida en Liv Coffee" width="1000" height="1178" loading="lazy">
+            <p class="card__caption">Frescura y dulzura</p>
           </div>
+          <div class="card__body"><h3>Bowls &amp; Liv Sweet</h3></div>
         </article>
 
         <article class="card r" style="--d:.06s">
-          <div class="card__img"><img src="assets/toast-higo.webp" alt="Toast de masa madre con higo caramelizado, jamón serrano y queso de cabra en Liv Coffee" width="827" height="957" loading="lazy"></div>
-          <div class="card__body">
-            <h3>Bread Station &amp; Toasts</h3>
-            <p class="card__items">Toast Higo · Zalm Toast · <svg class="veg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20c8-1 14-7 15-16-9 1-15 7-15 16Z"/></svg> Avo Toast</p>
+          <div class="card__img">
+            <img src="assets/toast-higo.webp" alt="Toast de masa madre con higo caramelizado, jamón serrano y queso de cabra en Liv Coffee" width="827" height="957" loading="lazy">
+            <p class="card__caption">Textura y cuidado</p>
           </div>
+          <div class="card__body"><h3>Bread Station &amp; Toasts</h3></div>
         </article>
 
         <article class="card r" style="--d:.12s">
-          <div class="card__img"><img src="assets/chilaquiles.webp" alt="Chilaquiles en salsa roja y verde con pollo, servidos en Liv Coffee" width="1000" height="1264" loading="lazy"></div>
+          <div class="card__img">
+            <img src="assets/chilaquiles.webp" alt="Chilaquiles en salsa roja y verde con pollo, servidos en Liv Coffee" width="1000" height="1264" loading="lazy">
+            <p class="card__caption">Sabor sin prisa</p>
+          </div>
           <div class="card__body">
             <h3>Huevos &amp; Liv in México</h3>
             <p class="card__note">El platillo que más se repite en sus reseñas de Google.</p>
-            <p class="card__items">Chilaquiles · Costra de Chilaquiles · Omelette de Salmón</p>
           </div>
         </article>
 
         <article class="card r" style="--d:.18s">
-          <div class="card__img"><img src="assets/latte-cookie.webp" alt="Latte de especialidad con galleta de triple chocolate en Liv Coffee" width="1000" height="1105" loading="lazy"></div>
-          <div class="card__body">
-            <h3>Café &amp; Bebidas</h3>
-            <p class="card__items">French Toast Latte · Green Liv Latte · Nutella Latte</p>
+          <div class="card__img">
+            <img src="assets/latte-cookie.webp" alt="Latte de especialidad con galleta de triple chocolate en Liv Coffee" width="1000" height="1105" loading="lazy">
+            <p class="card__caption">Aroma y calma</p>
           </div>
+          <div class="card__body"><h3>Café &amp; Bebidas</h3></div>
         </article>
       </div>
 
@@ -439,7 +448,7 @@ footer a{color:rgba(251,248,242,.92)}
     <div class="wrap cierre__panel">
       <p class="eyebrow r" style="justify-content:center">Los esperamos</p>
       <h2 class="r" style="--d:.06s">Reserven su mesa o pregunten por WhatsApp</h2>
-      <p class="r" style="--d:.1s">Respondemos el mismo día hábil. También nos encuentran en Instagram y en Uber Eats.</p>
+      <p class="r" style="--d:.1s">También nos encuentran en Instagram y en Uber Eats.</p>
       <div class="cierre__actions r" style="--d:.16s">
         <a class="btn btn--solid" id="cierreWa" href="#" target="_blank" rel="noopener">Reservar por WhatsApp</a>
         <a class="btn btn--ghost" href="https://www.instagram.com/liv_coffee/" target="_blank" rel="noopener">@liv_coffee</a>
